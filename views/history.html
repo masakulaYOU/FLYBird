@@ -1,0 +1,28 @@
+<% include userhead.html %>
+
+<div class="container">
+	<div id="map" style="height: 650px;"></div>
+	<div class="history">
+		<% if(data.history) { %>
+		<h2>我的足迹</h2>
+		<ul id="hislist">
+			<% for(var i = 0;i<data.history.length;i++){ %>
+			<li>
+				<a href="javascript:;" place=<%= data.history[i].startplace %>><%= data.history[i].startplace %></a>
+				至
+				<a href="javascript:;" place=<%= data.history[i].endplace %> ><%= data.history[i].endplace %></a>
+				<span time=<%= data.history[i].time %>><%= data.history[i].time %></span>
+			</li>
+			<% } %>
+		</ul>
+		<a href="javascript:;" class="btn btn-primary btn-lg btn-block" id="showmap">在地图中显示</a>
+		<% } %>
+		<% if(!data.history){ %>
+		<div class="alert alert-danger">您还没有旅游历史，点击<a href="/newjour">这里</a>开始新的旅途吧。</div>
+		<% } %>
+	</div>
+</div>
+<script type="text/javascript" src="/javascripts/userhis.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+
+<% include foot.html %>

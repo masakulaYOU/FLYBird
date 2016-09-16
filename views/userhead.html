@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人主页</title>
+	 <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/user.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=De0uuTCNZksFhxkBGHCGLbeuDzzzrorI"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">XX旅游平台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">主页</a></li>
+            <li><a href="/history">我的足迹</a></li>
+            <li><a href="/recommend">旅游推荐</a></li>
+            <li><a href="/newjour">新的旅程</a></li>
+            <li><a href="/logout">登出</a></li>
+          </ul>
+          <% if(user){ %>
+          <a href="/u" class="nav navbar-right">
+            <%= user.name %>
+          </a>
+          <% } %>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

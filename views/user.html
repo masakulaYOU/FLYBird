@@ -1,0 +1,17 @@
+<% include userhead.html %>
+
+<div class="container">
+	<div id="map" class="userIndexMap"></div>
+	<div class="indexRecomend">
+		<h2>2016暑期旅游推荐</h2>
+		<ul>
+		<% for(var i = 0;i<data.length;i++) { %>
+			<li><a href="javascript:;" lat= <%= data[i].position[0] %> lon=<%= data[i].position[1] %> score=<%= data[i].score %>>
+			<%= data[i].name %>
+			</a><span><%= data[i].score %></span></li>
+		<% } %>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="/javascripts/userIndex.js"></script>
+<% include foot.html %>

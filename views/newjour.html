@@ -1,0 +1,148 @@
+<% include userhead.html %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#drive" data-toggle="collapse" data-parent="#accordion">自驾路线</a>
+						</h4>
+					</div>
+					<div id="drive" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">起始地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="drivestart" placeholder="起始地" />
+								</div>
+								<label class="col-md-4 control-label">目的地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="driveend" placeholder="目的地">
+								</div>
+								<div class="col-md-12">
+									<button type="button" class="btn btn-lg btn-primary" id="subdrive">查询</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div>
+				
+
+				<div class="panel panel-default" style="display: none;">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#ride" data-toggle="collapse" data-parent="#accordion">骑行路线</a>
+						</h4>
+					</div>
+					<div id="ride" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">起始地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="ridestart" placeholder="起始地" />
+								</div>
+								<label class="col-md-4 control-label">目的地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="rideend" placeholder="目的地">
+								</div>
+								<div class="col-md-12">
+									<button type="button" class="btn btn-lg btn-primary" id="subride">查询</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div>
+				
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#walk" data-toggle="collapse" data-parent="#accordion">步行路线</a>
+						</h4>
+					</div>
+					<div id="walk" class="panel-collapse collapse">
+					<div class="panel-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-4 control-label">起始地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="walkstart" placeholder="起始地" />
+								</div>
+								<label class="col-md-4 control-label">目的地</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="walkend" placeholder="目的地">
+								</div>
+								<div class="col-md-12">
+									<button type="button" class="btn btn-lg btn-primary" id="subwalk">查询</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div>
+				
+
+			</div>
+		</div>
+
+		<div class="col-md-8 col-sm-12">
+			<div id="map" style="height: 650px;"></div>
+		</div>
+	</div>
+	<div class="mypanel">
+		<h3>结果<span><button class="close" type="button" id="close">&times;</button></span></h3>
+		<div id="r-result"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-success btn-block" type="button" id="addNew">新建旅程</button>
+		</div>
+		<div class="col-md-12" id="newjour">
+			<form class="form-horizontal" role="form" method="post">
+				<div class="form-group">
+					<label for="startplace" class="col-md-2 control-label">起始地</label>
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="startplace" name="startplace" placeholder="请输入起始地" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="endplace" class="col-md-2 control-label">目的地</label>
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="endplace" name="endplace" placeholder="请输入目的地" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="time" class="col-md-2 control-label">时间</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="time" name="time" placeholder="YYYY-MM-DD格式" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						<button type="submit" id="sub" class="btn btn-lg btn-primary btn-block">增加</button>
+					</div>
+					<% if(error) {%>
+					<div class="alert alert-danger">
+						<%= error %>
+					</div>
+					<% } %>
+					<% if(success){ %>
+					<div class="alert alert-success">
+						<%= success %>
+					</div>
+					<%}%>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="/javascripts/newjour.js"></script>
+</div>
+
+<% include foot.html %>
